@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thanks for Downloading</title>
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .download-message {
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .download-message h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .download-message p {
+      font-size: 1.1rem;
+      color: var(--text-gray);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="wrapper nav-content">
+      <div class="logo">Roblox Executor</div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#executors">Browse Executors</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+      <div class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/#executors">Browse Executors</a></li>
+      <li><a href="/#about">About</a></li>
+    </ul>
+  </div>
+
+  <!-- Download Message -->
+  <section class="download-message">
+    <div class="wrapper">
+      <h1>Thanks for Downloading</h1>
+      <p>Your download will begin in <span id="countdown">3</span> seconds...</p>
+      <p>If it doesn’t start, <a href="https://codeberg.org/rbxhex/rbx/releases/download/executor/Roblox_Executor.zip" rel="noopener">click here</a>.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrapper">
+      <p class="footer-text">© 2025 RobloxExecutor.org</p>
+      <p class="footer-text">Not affiliated with Roblox Corporation. Use at your own risk.</p>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById("mobileMenuBtn");
+    const menu = document.getElementById("mobileMenu");
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("active");
+      menu.classList.toggle("active");
+    });
+
+    let count = 3;
+    const countdownEl = document.getElementById("countdown");
+    const downloadURL = "https://codeberg.org/rbxhex/rbx/releases/download/executor/Roblox_Executor.zip";
+
+    const timer = setInterval(() => {
+      count--;
+      countdownEl.textContent = count;
+      if (count === 0) {
+        clearInterval(timer);
+        window.location.href = downloadURL;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
